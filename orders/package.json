@@ -1,0 +1,15 @@
+{
+  "name": "orders",
+  "version": "1.0.0",
+  "main": "orders.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node orders.js"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.16"
+  }
+}

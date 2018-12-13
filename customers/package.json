@@ -1,0 +1,14 @@
+{
+  "name": "customers",
+  "version": "1.0.0",
+  "main": "customers.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node customers.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.16"
+  }
+}

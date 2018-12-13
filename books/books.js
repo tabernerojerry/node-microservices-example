@@ -6,10 +6,11 @@ const Book = require("./Book");
 
 const app = express();
 
+// Body Parser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Connect MongoDB
+// Mongoose Config
 mongoose
   .connect(
     "mongodb://localhost:27017/booksservice",
@@ -20,7 +21,7 @@ mongoose
 
 app.get("/", (req, res) => res.send("Books Service"));
 
-// Service API Route
+// Service API Routes
 app.post("/books", async (req, res) => {
   try {
     const book = await Book.create(req.body);
@@ -47,9 +48,9 @@ app.get("/book/:id", async (req, res) => {
       res.status(404).json({ error: "Invalid Book Id" });
     }
 
-    const books = await Book.find({ _id: req.params.id }).limit(1);
+    const [book] = await Book.find({ _id: req.params.id }).limit(1);
 
-    res.json(books[0]);
+    res.json(book);
   } catch (err) {
     console.log(err.message);
   }
